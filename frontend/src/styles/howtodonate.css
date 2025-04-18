@@ -1,0 +1,112 @@
+.donate-container1 {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.donate-container1 h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #1a3d6f; /* Navy blue */
+    margin-bottom: 20px;
+}
+
+.donate-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.donate-step {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Added subtle border for better separation */
+}
+
+.donate-step .emoji {
+    font-size: 2.5rem;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.donate-step h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1a3d6f; /* Navy blue for consistency */
+}
+
+.donate-step p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.donate-step strong {
+    color: #1a3d6f; /* Navy blue */
+}
+
+.donate-step:last-child {
+    margin-bottom: 0;
+}
+
+.donate-step > p {
+    line-height: 1.6;
+}
+
+.donate-container1 a {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #1a3d6f; /* Navy blue */
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.donate-container1 a:hover {
+    background-color: #163a57; /* Slightly darker navy blue */
+    transform: translateY(-2px);
+}
+
+.donate-container1 a:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 768px) {
+    .donate-container1 {
+        padding: 20px;
+    }
+
+    .donate-container1 h2 {
+        font-size: 1.8rem;
+    }
+
+    .donate-intro {
+        font-size: 1rem;
+    }
+
+    .donate-step {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .donate-step .emoji {
+        margin-bottom: 15px;
+    }
+
+    .donate-step h3 {
+        font-size: 1.2rem;
+    }
+
+    .donate-step p {
+        font-size: 0.95rem;
+    }
+}

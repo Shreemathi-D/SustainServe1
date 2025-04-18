@@ -5,9 +5,7 @@ const WhereDonationsGo = () => {
         maxWidth: "800px",
         margin: "40px auto",
         padding: "30px",
-        backgroundColor: "#fff5f7",
         borderRadius: "15px",
-        boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)",
         textAlign: "center",
     };
 
@@ -17,6 +15,7 @@ const WhereDonationsGo = () => {
         color: "#333",
         marginBottom: "20px",
         letterSpacing: "1px",
+        color:"#303481"
     };
 
     const cardBaseStyle = {

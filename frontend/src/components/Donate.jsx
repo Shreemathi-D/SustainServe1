@@ -3,20 +3,20 @@ import axios from 'axios';
 
 const Donate = () => {
   const [formData, setFormData] = useState({
-    donorname: '',
-    name: '',
+    donorName: '',
+    foodName: '',
     quantity: '',
     location: '',
     contact: '',
-    latitude: null,
-    longitude: null,
+    latitude: null,   // Initially set as null
+    longitude: null,  // Initially set as null
   });
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
 
-  // Get user's location
+  // Get user's location if allowed
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -47,6 +47,8 @@ const Donate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if location data is missing and handle the case
     if (!formData.latitude || !formData.longitude) {
       setError('❌ Location access is required to donate.');
       return;
@@ -63,13 +65,13 @@ const Donate = () => {
 
         // Reset form
         setFormData({
-          donorname: '',
-          name: '',
+          donorName: '',
+          foodName: '',
           quantity: '',
           location: '',
           contact: '',
-          latitude: null,
-          longitude: null,
+          latitude: null,  // Reset latitude and longitude after form submission
+          longitude: null, 
         });
       } else {
         setError(response.data.message || '❌ Failed to submit donation. Please try again.');
@@ -90,18 +92,18 @@ const Donate = () => {
       <form onSubmit={handleSubmit} style={formStyle}>
         <input
           type="text"
-          name="donorname"
+          name="donorName"
           placeholder="Donor Name"
-          value={formData.donorname}
+          value={formData.donorName}
           onChange={handleChange}
           required
           style={inputStyle}
         />
         <input
           type="text"
-          name="name"
+          name="foodName"
           placeholder="Food Name"
-          value={formData.name}
+          value={formData.foodName}
           onChange={handleChange}
           required
           style={inputStyle}
@@ -166,7 +168,7 @@ const inputStyle = {
 
 const buttonStyle = {
   padding: '10px',
-  backgroundColor: '#007bff',
+  backgroundColor: '#303481',
   color: 'white',
   border: 'none',
   borderRadius: '4px',

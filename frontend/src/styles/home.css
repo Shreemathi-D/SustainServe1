@@ -1,0 +1,321 @@
+/* styles/home.css */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.home-container {
+    background-color: #f5efff;
+    color: #303481;
+    padding-bottom: 3rem;
+}
+
+.hero-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 2rem;
+    background: linear-gradient(135deg, #e5d9f2 0%, #cdc1ff 100%);
+    overflow: hidden;
+    z-index: 0;
+    border-radius: 0 0 60px 60px;
+}
+
+
+.hero-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    z-index: 2;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    padding: 2rem;
+    color: #303481;
+    text-align: left;
+    animation: fadeInDown 1s ease-in;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.hero-text .highlight {
+    color: #303481;
+}
+
+.hero-text p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    font-weight: bolder;
+}
+.text1{
+    font-size: larger !important;
+    font-style: italic;
+}
+.text2{
+    font-size: medium !important;
+    font-style: italic;
+}
+.donate-btn {
+    background-color: transparent;
+    color: black;
+    padding: 0.9rem 1.7rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 10px 20px rgba(162, 148, 249, 0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    border:1px solid black;
+}
+
+.donate-btn:hover {
+    transform: scale(1.07);
+    color: white;
+    background-color: black;
+    opacity: 0.9;
+}
+
+.hero-img-wrap {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    animation: fadeInRight 1.5s ease-in;
+}
+
+.home-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 30px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Section Headings */
+section {
+    padding: 3rem 2rem;
+}
+
+section h2 {
+    color: #303481;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* About Us (Our Story) - Enhanced */
+.about-us {
+    background: #f5efff;
+    margin: 3rem 0;
+    padding: 3rem 2rem;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    font-style: italic;
+}
+
+.about-us::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -40px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #cdc1ff 0%, transparent 70%);
+    z-index: 0;
+    opacity: 0.2;
+}
+
+.about-us p {
+    max-width: 850px;
+    margin: 1rem auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}
+
+.about-us h2 {
+    font-size: 2.5rem;
+    color: #303481;
+    margin-bottom: 1.2rem;
+}
+
+.learn-more-btn1, .contact-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: #E83F25;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    justify-items: center;
+}
+
+.learn-more-btn1:hover,
+.contact-btn:hover {
+    background-color: #303481;
+}
+
+/* What We Do Cards */
+.what-we-do {
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #f5efff;
+    border: 1px solid #303481;
+    padding: 1.5rem;
+    border-radius: 16px;
+    max-width: 300px;
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    color: #303481;
+    margin-bottom: 1rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.fade-in-section {
+    animation: fadeInDown 1.2s ease-in-out;
+}
+
+.slide-in-section {
+    animation: fadeInRight 1.2s ease-in-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        padding: 0;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Contact Us Section */
+.contact-us {
+    background-color: #fffef5; /* Light cream tone */
+    padding: 3rem 2rem;
+    margin: 3rem auto;
+    border-radius: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    max-width: 1000px;
+    animation: fadeInUp 1.3s ease-in-out;
+}
+
+.contact-us::before {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #c3f2d3 0%, transparent 70%); /* light green accent */
+    top: -50px;
+    right: -50px;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+.contact-us h2 {
+    font-size: 2.5rem;
+    color: #303481; /* primary navy tone */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    z-index: 2;
+    position: relative;
+}
+
+.contact-us p {
+    color: #2a2a2a;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 750px;
+    margin: 0.8rem auto;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    animation: fadeInDown 1s ease;
+}
+
+/* Contact Button */
+.contact-btn {
+    background-color: #E83F25; /* warm red-orange */
+    color: white;
+    padding: 0.8rem 1.6rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 6px 20px rgba(232, 63, 37, 0.3);
+}
+
+.contact-btn:hover {
+    background-color: #303481;
+    transform: translateY(-3px);
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

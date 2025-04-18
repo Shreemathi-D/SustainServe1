@@ -8,33 +8,60 @@ const AvailableDonations = () => {
 
   // Fetch available donations from the backend
   useEffect(() => {
-    console.log("📡 Fetching donations...");
-    axios.get("http://localhost:5000/donations")
-      .then((response) => {
-        console.log("✅ Donations fetched (frontend):", response.data);
-        setDonations(response.data);
-        setLoading(false);
+    const fetchDonations = (latitude, longitude) => {
+      console.log("📡 Fetching donations near:", latitude, longitude);
+      axios.get("http://localhost:5000/donations", {
+        params: {
+          lat: latitude,
+          lon: longitude,
+        },
       })
-      .catch((error) => {
-        console.error("❌ Error fetching donations:", error);
-        setError("Failed to fetch donations.");
-        setLoading(false);
-      });
+        .then((response) => {
+          console.log("✅ Donations fetched (sorted):", response.data);
+          setDonations(response.data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("❌ Error fetching donations:", error);
+          setError("Failed to fetch donations.");
+          setLoading(false);
+        });
+    };
+  
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          fetchDonations(latitude, longitude);
+        },
+        (error) => {
+          console.warn("⚠️ Location access denied. Showing all donations.");
+          fetchDonations(null, null); // fallback
+        }
+      );
+    } else {
+      console.warn("⚠️ Geolocation not supported. Showing all donations.");
+      fetchDonations(null, null); // fallback
+    }
   }, []);
+  
 
   // Claim a donation
   const handleOrder = async (id) => {
     try {
-      await axios.post(`http://localhost:5000/claim-donation/${id}`);
+      await axios.put(`http://localhost:5000/donations/${id}/status`, {
+        status: "Accepted", // this sets `received = true` in the backend
+      });
       setDonations((prevDonations) =>
         prevDonations.filter((donation) => donation._id !== id)
       );
       alert("🎉 Order placed successfully!");
     } catch (err) {
-      console.error("Error claiming donation:", err);
+      console.error("Error claiming donation:", err.response?.data || err.message);
       alert("⚠️ Failed to place order. Please try again.");
     }
   };
+  
 
   return (
     <div style={containerStyle}>

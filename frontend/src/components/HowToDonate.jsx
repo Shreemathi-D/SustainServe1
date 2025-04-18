@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../styles/howtodonate.css"
 
 const HowToDonate = () => {
     return (
-        <div className="donate-container">
+        <div className="donate-container1">
             <h2>🍽️ How to Donate Food</h2>
             <p className="donate-intro">
                 Donating food is simple and impactful. Follow these easy steps to make a difference:

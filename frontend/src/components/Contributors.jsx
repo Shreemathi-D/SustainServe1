@@ -59,7 +59,7 @@ const Contributors = () => {
     );
 };
 
-// Inline CSS styles
+// Inline CSS styles with animations and hover effects
 const styles = {
     container: {
         margin: '20px auto',
@@ -68,38 +68,61 @@ const styles = {
         textAlign: 'center',
         backgroundColor: '#f7f7f7',
         borderRadius: '10px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        transition: 'all 0.3s ease-in-out',
     },
     title: {
         fontSize: '28px',
         marginBottom: '20px',
-        color: '#333',
+        color: '#303481',
+        animation: 'fadeIn 1s ease-out',
     },
     message: {
         color: '#666',
         fontSize: '18px',
+        transition: 'opacity 0.5s ease-in-out',
     },
     table: {
         width: '100%',
         borderCollapse: 'collapse',
         margin: '20px 0',
+        animation: 'fadeIn 1s ease-out',
     },
     th: {
         padding: '12px',
-        backgroundColor: '#007bff',
-        color: '#fff',
+        backgroundColor: '#B4B4B3',
+        color: 'black',
         border: '1px solid #ddd',
         textAlign: 'left',
+        transition: 'background-color 0.3s ease',
+        cursor: 'pointer',  // Indicate the header is interactive
     },
     td: {
         padding: '12px',
         border: '1px solid #ddd',
         textAlign: 'left',
         color: '#333',
+        transition: 'background-color 0.3s ease',
     },
     tr: {
         backgroundColor: '#f9f9f9',
+        transition: 'background-color 0.3s ease, transform 0.3s ease-in-out',
+    },
+    trHover: {
+        backgroundColor: '#e9f5ff',
+        transform: 'scale(1.02)',
     },
 };
 
+// Global CSS for keyframes animation (This should be included in your global CSS file or in the head of your HTML)
+const fadeIn = `
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+`;
+
+// Add keyframe to style
+const stylesWithAnimation = { ...styles, fadeIn };
+
+// Exporting the component
 export default Contributors;

@@ -18,6 +18,8 @@ import TrackOrders from "./components/TrackOrders";
 import Receiver from "./components/Receiver";
 import AcceptReceiverOrder from "./components/AcceptReceiverOrder";
 import AvailableDonations from "./components/AvailableDonations";
+import Navbar from "./components/Navbar";
+import Footer from './components/Footer';
 import "./app.css";
 
 const App = () => {
@@ -33,40 +35,7 @@ const App = () => {
 
     return (
         <div>
-            <h1>Sustain Serve</h1>
-
-            {/* ✅ Conditional Navigation Bar */}
-            {user ? (
-                user.type === 'receiver' ? (
-                    <nav>
-                        <Link to="/receiver-home">Home</Link> |
-                        <Link to="/contributors">Contributors</Link> |
-                        <Link to="/available-donations">Available Donations</Link> |
-                        <Link to="/track-orders">Track Orders</Link> |
-                        <Link to="/request-food">Request Food</Link> |
-                        <Link to="/" onClick={handleLogout}>Logout</Link>
-                    </nav>
-                ) : (
-                    <nav>
-                        <Link to="/donor-home">Home</Link> |
-                        <Link to="/contributors">Contributors</Link> |
-                        <Link to="/track-orders">Track Orders</Link> |
-                        <Link to="/donate-form">Donate</Link> |
-                        <Link to="/" onClick={handleLogout}>Logout</Link>
-                    </nav>
-                )
-            ) : (
-                <nav>
-                    <Link to="/">Home</Link> |
-                    <Link to="/about-us">About Us</Link> |
-                    <Link to="/contributors">Contributors</Link> |
-                    <Link to="/how-to-donate">How to Donate</Link> |
-                    <Link to="/where-donations-go">Where Do Our Donations Go?</Link> |
-                    <Link to="/login">Login</Link> |
-                    <Link to="/signup">Signup</Link>
-                </nav>
-            )}
-
+            <Navbar user={user} handleLogout={handleLogout} />
             {/* ✅ Routes */}
             <Routes>
                 {/* Public Routes */}
@@ -85,12 +54,13 @@ const App = () => {
                 <Route path="/receiver" element={<Receiver />} />
                 <Route path="/accept-receiver-order" element={<AcceptReceiverOrder />} />
                 <Route path="/available-donations" element={<AvailableDonations />} />
-                <Route path="/request-food" element={<FoodOrder />} />
+                <Route path="/receiver" element={<Receiver />} />
 
                 {/* Authentication Routes */}
                 <Route path="/login" element={<Login setUser={setUser} />} />
                 <Route path="/signup" element={<Signup setUser={setUser} />} />
             </Routes>
+            <Footer />
         </div>
     );
 };
